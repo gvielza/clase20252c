@@ -1,4 +1,6 @@
-class Automovil():
+from vehiculo import Vehiculo
+
+class Automovil(Vehiculo):
   ruedas=4
   def __init__(self,color,marca,aceleracion, velocidad):
     self.color=color
@@ -9,6 +11,11 @@ class Automovil():
     self.velocidad=self.aceleracion+self.velocidad
   def frena(self):
     self.velocidad=self.velocidad-self.aceleracion
+
+  def conducir(self):
+    return "Está siendo conducido"
+  def volar(self):
+    return "EL automovil no puede volar"
 
 
 auto1=Automovil("Azul", "Toyota",10,10)
@@ -30,6 +37,8 @@ auto2.frena()
 
 print(f"La velocidad es de {auto2.velocidad}")
 
+print("Abstracción +++++++++++++++")
+print(auto1.conducir())
 
 
     

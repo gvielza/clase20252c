@@ -1,5 +1,6 @@
 from automovil import Automovil
 
+
 class AutomovilVolador(Automovil):
   ruedas=6
   def __init__(self, color, marca, aceleracion, velocidad,esta_volando=True):
@@ -14,6 +15,10 @@ class AutomovilVolador(Automovil):
       return f"El automovil bolador tiene {self.ruedas} ruedas y no está volando"
     else:
       return f"El automovil bolador tiene {self.ruedas} ruedas y está volando"
+  def conducir(self):
+    return "El automovil está siendo conducido"
+  def volar(self):
+    return "El automovil está volando"
 
 autoV1=AutomovilVolador("rojo","Ferrari", 100,120,True)
 print(autoV1.datos())
