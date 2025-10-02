@@ -1,5 +1,7 @@
 from vehiculo import Vehiculo
 
+import sqlite3
+
 class Automovil(Vehiculo):
   ruedas=4
   def __init__(self,color,marca,aceleracion, velocidad):
@@ -39,6 +41,26 @@ print(f"La velocidad es de {auto2.velocidad}")
 
 print("Abstracción +++++++++++++++")
 print(auto1.conducir())
+
+print("SQLITE*************")
+conexion=sqlite3.connect("base_datos/mi_db.db")
+cursor=conexion.cursor()
+
+cursor.execute('''CREATE  TABLE IF NOT EXISTS  automoviles (id INTEGER PRIMARY KEY AUTOINCREMENT, color TEXT, marca TEXT, aceleracion INTEGER, velocidad INTEGER)''')
+conexion.commit()
+
+cursor.execute('''INSERT INTO automoviles(color,marca,aceleracion, velocidad) VALUES (?,?,?,?)''',(auto1.color, auto1.marca, auto1.aceleracion,auto1.velocidad))
+conexion.commit()
+
+autos=cursor.execute('''SELECT * from automoviles''')
+
+id=2
+
+cursor.execute('''DELETE FROM automoviles WHERE id =?''', (id,) )
+conexion.commit()
+
+for auto in autos:
+  print(auto)
 
 
     
