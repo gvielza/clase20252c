@@ -62,7 +62,7 @@ id=16
 
 
 color="VERDE"
-marca="TOYOTA3"
+marca="TOYOTA2"
 aceleracion=100
 velocidad=120
 mi_id=7
