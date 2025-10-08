@@ -52,17 +52,27 @@ conexion.commit()
 cursor.execute('''INSERT INTO automoviles(color,marca,aceleracion, velocidad) VALUES (?,?,?,?)''',(auto1.color, auto1.marca, auto1.aceleracion,auto1.velocidad))
 conexion.commit()
 
-autos=cursor.execute('''SELECT * from automoviles''')
+#autos=cursor.execute('''SELECT * from automoviles''')
 
-id=2
+id=16
 
-cursor.execute('''DELETE FROM automoviles WHERE id =?''', (id,) )
+#cursor.execute('''DELETE FROM automoviles WHERE id =?''', (id,) )
+#conexion.commit()
+
+
+
+color="VERDE"
+marca="TOYOTA3"
+aceleracion=100
+velocidad=120
+mi_id=7
+
+cursor.execute('''UPDATE automoviles SET color=?, marca=?, aceleracion=?, velocidad=? WHERE id=?''',(color, marca, aceleracion,velocidad,mi_id))
 conexion.commit()
 
+autos=cursor.execute('''SELECT * from automoviles''')
 for auto in autos:
   print(auto)
-
-
     
 
   
